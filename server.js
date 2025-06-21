@@ -7,6 +7,31 @@ const fs = require("fs");
 const axios = require("axios");
 const { Telegraf } = require("telegraf");
 const UAParser = require("ua-parser-js");
+
+/**
+ * Parse user agent string to extract browser and OS information safely
+ * @param {string} userAgent - The user agent string to parse
+ * @returns {Object} - Object containing browser and os information
+ */
+function parseUserAgent(userAgent) {
+  if (!userAgent) {
+    return { browser: 'Unknown', os: 'Unknown' };
+  }
+  
+  try {
+    const parser = new UAParser(userAgent);
+    const browserInfo = parser.getBrowser();
+    const osInfo = parser.getOS();
+    
+    return {
+      browser: browserInfo && browserInfo.name ? `${browserInfo.name} ${browserInfo.version || ''}`.trim() : 'Unknown',
+      os: osInfo && osInfo.name ? `${osInfo.name} ${osInfo.version || ''}`.trim() : 'Unknown'
+    };
+  } catch (error) {
+    console.error('Error parsing user agent:', error);
+    return { browser: 'Unknown', os: 'Unknown' };
+  }
+}
 const bot = new Telegraf(process.env.TOKEN);
 const { Server } = require('socket.io');
 
