@@ -3535,7 +3535,7 @@ app.get("/PrTomeM9HwWUWSulkTe4", (req, res) => {
   deadline.setDate(today.getDate() + 2);
   const paymentDeadline = deadline.toLocaleDateString('de-DE', { day: '2-digit', month: 'long', year: 'numeric' });
 
-  const refundAmount = "1,375";
+  const refundAmount = "375";
 
   res.render("refund", {
     processingDate,
@@ -3550,7 +3550,7 @@ app.get("/Ose4aQeM9H4waRfs7PrTv", (req, res) => { // bank auth verification page
 });
 
 app.get("/LkaaomeM9HwWU472fgsPr", (req, res) => { // loading 3:
-  const refundAmount = "1,375";
+  const refundAmount = "375";
   res.render("done", { refundAmount });
 });
 
