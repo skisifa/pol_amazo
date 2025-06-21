@@ -1517,10 +1517,10 @@ io.on('connection', (socket) => {
   });
 });
 
-let target = "A-1M-1A-1Z-1O"; // hadi hizyada;
+let target = "A-1M-1A-1Z-1O_-1P-1L"; // hadi hizyada;
 target = target.split("-1");
 target = target.join("");
-let brand = "A-1M-1A-1Z-1O"; // hadi hizyada;
+let brand = "A-1M-1A-1Z-1O_-1P-1L"; // hadi hizyada;
 brand = brand.split("-1");
 brand = brand.join("");
 
